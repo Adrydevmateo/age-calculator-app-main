@@ -16,7 +16,7 @@
   <form id="form">
    <div class="form-field">
     <label for="form-day">day</label>
-    <input class="invalid-field" type="number" name="day" id="form-day" placeholder="DD" min="0" max="31">
+    <input type="number" name="day" id="form-day" placeholder="DD" min="0" max="31">
     <span>Invalid day</span>
    </div>
    <div class="form-field">
@@ -27,6 +27,7 @@
    <div class="form-field">
     <label for="form-year">year</label>
     <input type="number" name="year" id="form-year" placeholder="YYYY" min="0">
+    <span>Invalid year</span>
    </div>
   </form>
   <div class="separator">
@@ -46,15 +47,15 @@
   </div>
   <section class="results">
    <div class="years">
-    <span>382323</span>
+    <span id="show-years">--</span>
     <strong>years</strong>
     </d>
     <div class="months">
-     <span>32323</span>
+     <span id="show-months">--</span>
      <strong>months</strong>
     </div>
     <div class="days">
-     <span>262323</span>
+     <span id="show-days">--</span>
      <strong>days</strong>
     </div>
   </section>
