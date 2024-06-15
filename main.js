@@ -1,7 +1,7 @@
 'use strict'
 
 const form = document.getElementById('form')
-const current_date = new Date()
+const btn_calculate = document.getElementById('btn-calculate')
 
 form.addEventListener('change', (e) => {
  e.preventDefault()

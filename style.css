@@ -31,12 +31,13 @@ button {
 }
 
 input {
- outline: none;
+ outline-color: var(--Purple);
  border: 1px solid var(--Light-grey);
  font-size: 2em;
  min-width: 0;
  border-radius: .3em;
  padding: .4em;
+ cursor: pointer;
 }
 
 main {
@@ -50,11 +51,13 @@ main {
 #form {
  display: grid;
  gap: 1em;
+ row-gap: 2em;
  padding: 1em;
- margin-bottom: 1em;
+ margin-bottom: 2em;
 }
 
 .form-field {
+ position: relative;
  display: grid;
  gap: .3em;
 }
@@ -63,6 +66,30 @@ main {
  letter-spacing: .2em;
  text-transform: uppercase;
  color: var(--Smokey-grey);
+}
+
+.form-field:has(.invalid-field) label {
+ color: var(--Light-red);
+}
+
+.form-field:has(.invalid-field) input {
+ border-color: var(--Light-red);
+ color: var(--Light-red);
+}
+
+.form-field span {
+ opacity: 0;
+ pointer-events: none;
+ position: absolute;
+ color: var(--Light-red);
+ font-style: italic;
+ text-align: end;
+ width: 100%;
+ transition: opacity .2s ease;
+}
+
+.form-field:has(.invalid-field) span {
+ opacity: 1 !important;
 }
 
 .separator {
@@ -87,14 +114,20 @@ hr {
  justify-content: center;
 }
 
-.separator svg g {
- stroke: var(--White);
-}
-
 .separator svg {
  border-radius: 100%;
  padding: 1.5em;
  background-color: var(--Purple);
+ cursor: pointer;
+ transition: background-color .2s ease;
+}
+
+.separator svg:hover {
+ background-color: var(--Off-black);
+}
+
+.separator svg g {
+ stroke: var(--White);
 }
 
 .results {
@@ -117,6 +150,31 @@ hr {
  #form {
   grid-template-columns: repeat(3, 1fr);
  }
+
+ .form-field span {
+  bottom: -1.8em;
+  text-align: start;
+  padding: 0 .4em;
+ }
 }
 
-@media screen and (min-width: 1440px) {}
+@media screen and (min-width: 1440px) {
+
+ html,
+ input,
+ button {
+  font-size: larger;
+ }
+
+ input {
+  padding-left: 1em;
+ }
+
+ .separator {
+  margin-bottom: 0em;
+ }
+
+ .separator .row-2 {
+  display: none;
+ }
+}
